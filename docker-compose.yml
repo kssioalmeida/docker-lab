@@ -1,0 +1,15 @@
+version: '2'
+services:
+  web:
+    build: .
+    ports:
+     - "5000:5000"
+    volumes:
+     - ./app:/code
+    depends_on:
+     - redis-srv
+     - mongo-srv
+  redis-srv:
+    image: redis
+  mongo-srv:
+    image: mongo
